@@ -36,6 +36,11 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
+# Big Sur dependent flags for building Python
+# github:1746
+export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/bzip2/lib"
+export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/bzip2/include"
+
 BASE16_SHELL_SET_BACKGROUND=false
 # https://github.com/chriskempson/base16-shell#bashzsh
 BASE16_SHELL="$HOME/.config/base16-shell/"
@@ -250,3 +255,6 @@ source $ZSH/oh-my-zsh.sh
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
+
+# Node14 for serverless
+export PATH="/usr/local/opt/node@14/bin:$PATH"
