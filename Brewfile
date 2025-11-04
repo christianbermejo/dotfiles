@@ -11,6 +11,7 @@ brew "git-secrets"
 brew "handbrake", link: false
 brew "imagemagick"
 brew "jq"
+brew "node"
 brew "p7zip"
 brew "perl"
 brew "pyenv"
